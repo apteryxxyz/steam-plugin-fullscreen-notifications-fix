@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/shdwmtr/millennium/main/src/sys/plugin-schema.json",
+
+  "name": "fullscreen-notifications-fix",
+  "common_name": "Fullscreen Notifications Fix",
+  "description": "Fixes Steam notifications not appearing when a fullscreen non-Steam app is focused.",
+  "version": "1.0.0"
+}

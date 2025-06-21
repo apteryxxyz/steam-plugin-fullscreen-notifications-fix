@@ -1,0 +1,21 @@
+{
+  "name": "steam-plugin-non-steam-notifications",
+  "packageManager": "pnpm@10.10.0",
+  "private": true,
+  "scripts": {
+    "format": "biome format . --write",
+    "build": "millennium-ttc --build prod",
+    "dev": "powershell -ExecutionPolicy Bypass -File dev.ps1"
+  },
+  "dependencies": {
+    "@steambrew/client": "^5.3.6",
+    "react": "18",
+    "react-dom": "18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@steambrew/ttc": "^2.5.3",
+    "@types/react": "18",
+    "@types/react-dom": "18"
+  }
+}
