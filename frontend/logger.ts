@@ -1,23 +1,30 @@
 class Logger {
-  #style = 'background: rgb(43, 89, 216); color: white;';
-  #module: string;
-  #organisation: string;
+  #badgeStyle =
+    'background: rgb(43, 89, 216); color: white;';
+  #resetStyle = 'background: transparent;';
+  #badgeText: string;
 
-  constructor(module: string, organisation: string) {
-    this.#module = module;
-    this.#organisation = organisation;
+  constructor(badgeText: string) {
+    this.#badgeText = badgeText;
   }
 
-  #infoStyle = 'background: rgb(28, 135, 206); color: white;';
   info(...args: unknown[]) {
     console.info(
-      `%c ${this.#organisation} %c ${this.#module} %c`,
-      this.#style,
-      this.#infoStyle,
-      'background: transparent;',
+      `%c ${this.#badgeText} %c`,
+      this.#badgeStyle,
+      this.#resetStyle,
+      ...args,
+    );
+  }
+
+  debug(...args: unknown[]) {
+    console.debug(
+      `%c ${this.#badgeText} %c`,
+      this.#badgeStyle,
+      this.#resetStyle,
       ...args,
     );
   }
 }
 
-export default new Logger('Notifications', 'Non-Steam');
+export default new Logger('Fullscreen Notifications Fix');

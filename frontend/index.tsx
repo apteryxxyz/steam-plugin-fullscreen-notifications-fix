@@ -6,6 +6,7 @@ import logger from './logger.js';
 // focused, ultimately preventing any Steam notifications from being displayed.
 // This patch prevents that behaviour by making `ClearAllToastNotifications` a no-op.
 replacePatch(Steam.NotificationStore, 'ClearAllToastNotifications', () => {
+  logger.debug('Called `ClearAllToastNotifications`, returning void 0');
   return void 0;
 });
 logger.info('Patched `ClearAllToastNotifications`');
@@ -13,6 +14,7 @@ logger.info('Patched `ClearAllToastNotifications`');
 // Without the following, notifications leave space below for the taskbar, even
 // when the app is fullscreen.
 Steam.SystemUI.RegisterForFocusChangeEvents(async () => {
+  logger.debug('Focus changed, resetting usable area');
   // Reset the default monitor dimensions
   await Steam.FocusedAppWindowStore.QueryDefaultMonitorDimensions();
 
@@ -21,6 +23,7 @@ Steam.SystemUI.RegisterForFocusChangeEvents(async () => {
   if (isFullScreen)
     Steam.FocusedAppWindowStore.m_defaultMonitor.m_usable =
       Steam.FocusedAppWindowStore.m_defaultMonitor.m_full;
+  logger.debug('Usable area reset', Steam.FocusedAppWindowStore.m_defaultMonitor);
 });
 logger.info('Added callback to `RegisterForFocusChangeEvents`');
 

@@ -1,5 +1,5 @@
 {
-  "name": "steam-plugin-non-steam-notifications",
+  "name": "steam-plugin-fullscreen-notifications-fix",
   "packageManager": "pnpm@10.10.0",
   "private": true,
   "scripts": {
