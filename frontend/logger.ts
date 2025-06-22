@@ -1,6 +1,4 @@
 class Logger {
-  #badgeStyle =
-    'background: rgb(43, 89, 216); color: white;';
   #resetStyle = 'background: transparent;';
   #badgeText: string;
 
@@ -8,8 +6,15 @@ class Logger {
     this.#badgeText = badgeText;
   }
 
-  info(...args: unknown[]) {
-    console.info(
+  get #badgeStyle() {
+    const hash = [...this.#badgeText] //
+      .reduce((h, c) => (h << 5) - h + c.charCodeAt(0), 0);
+    const hex = `#${(hash & 0xffffff).toString(16).padStart(6, '0')}`;
+    return `background: ${hex}; color: white;`;
+  }
+
+  #log(log: typeof console.log, ...args: unknown[]) {
+    log(
       `%c ${this.#badgeText} %c`,
       this.#badgeStyle,
       this.#resetStyle,
@@ -18,12 +23,11 @@ class Logger {
   }
 
   debug(...args: unknown[]) {
-    console.debug(
-      `%c ${this.#badgeText} %c`,
-      this.#badgeStyle,
-      this.#resetStyle,
-      ...args,
-    );
+    this.#log(console.debug, ...args);
+  }
+
+  info(...args: unknown[]) {
+    this.#log(console.info, ...args);
   }
 }
 
