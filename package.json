@@ -1,21 +1,17 @@
 {
   "name": "steam-plugin-fullscreen-notifications-fix",
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.13.1",
   "private": true,
   "scripts": {
-    "format": "biome format . --write",
+    "format": "biome check . --write",
     "build": "millennium-ttc --build prod",
     "dev": "powershell -ExecutionPolicy Bypass -File dev.ps1"
   },
   "dependencies": {
-    "@steambrew/client": "^5.3.6",
-    "react": "18",
-    "react-dom": "18"
+    "@steambrew/client": "^5.4.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@steambrew/ttc": "^2.5.3",
-    "@types/react": "18",
-    "@types/react-dom": "18"
+    "@biomejs/biome": "^2.1.1",
+    "@steambrew/ttc": "^2.6.3"
   }
 }

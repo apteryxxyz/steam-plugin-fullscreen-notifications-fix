@@ -7,17 +7,17 @@ type SB_NotificationStore = (typeof window)['NotificationStore'];
 //
 
 namespace Steam {
+  // ===== NotificationStore ===== //
+
   export interface NotificationStore extends SB_NotificationStore {
     ClearAllToastNotifications(): void;
   }
 
   export const NotificationStore: NotificationStore = //
     Reflect.get(window, 'NotificationStore');
-}
 
-//
+  // ===== FocusedAppWindowStore ===== //
 
-namespace Steam {
   export interface MonitorDimensions {
     m_nHeight: number;
     m_nWidth: number;
@@ -35,20 +35,16 @@ namespace Steam {
 
   export const FocusedAppWindowStore: FocusedAppWindowStore = //
     Reflect.get(window, 'FocusedAppWindowStore');
-}
 
-//
+  // ===== Window ===== //
 
-namespace Steam {
   export interface Window extends SB_Window {}
 
   export const Window: Window = //
     Reflect.get(window, 'SteamClient')?.Window;
-}
 
-//
+  // ===== SystemUI ===== //
 
-namespace Steam {
   export interface SystemUI extends SB_SystemUI {}
 
   export const SystemUI: SystemUI = //

@@ -1,6 +1,6 @@
 import { replacePatch } from '@steambrew/client';
-import Steam from './steam.js';
 import logger from './logger.js';
+import Steam from './steam.js';
 
 // Steam calls `ClearAllToastNotifications` when it detects a fullscreen app is
 // focused, ultimately preventing any Steam notifications from being displayed.

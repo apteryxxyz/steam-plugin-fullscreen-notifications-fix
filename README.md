@@ -1,4 +1,4 @@
-# Fullscreen Notifications Fix
+# Fullscreen Notifications Fix <a href='https://ko-fi.com/X8X554X28' target='_blank'>☕</a>
 
 A Millennium plugin that fixes Steam notifications not appearing when a fullscreen non-Steam app is focused.
 
